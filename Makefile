@@ -1,5 +1,8 @@
 # Build for srcComplexity
 
+.PHONY: all
+all : srccomplexity
+
 srccomplexity : srcComplexity.o srcMLXPathCount.o
 	g++ -std=c++17 $^ -lxml2 -o $@
 
