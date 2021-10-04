@@ -1,13 +1,13 @@
 # Build for srcComplexity
 
 srccomplexity : srcComplexity.o srcMLXPathCount.o
-	g++ -std=c++17 srcComplexity.o srcMLXPathCount.o -lxml2 -o srccomplexity
+	g++ -std=c++17 $^ -lxml2 -o $@
 
 srcComplexity.o : srcComplexity.cpp srcMLXPathCount.hpp
-	g++ -std=c++17 -c srcComplexity.cpp
+	g++ -std=c++17 -c $<
 
 srcMLXPathCount.o : srcMLXPathCount.cpp srcMLXPathCount.hpp
-	g++ -std=c++17 -I/usr/include/libxml2 -c srcMLXPathCount.cpp
+	g++ -std=c++17 -I/usr/include/libxml2 -c $<
 
 .PHONY: run
 run : srccomplexity
