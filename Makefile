@@ -20,10 +20,14 @@ coverage : srccomplexity
 coverage/report : srccomplexity
 	gcov srcComplexity.gcda | head -3
 
+.PHONY: coverage/clean
+coverage/clean :
+	@rm -f *.gcda *.gcov
+
 .PHONY: run
 run : srccomplexity
 	./srccomplexity srcMLXPathCount.cpp.xml
 
 .PHONY: clean
 clean :
-	@rm -f srccomplexity srcComplexity.o srcMLXPathCount.o
+	@rm -f srccomplexity srcComplexity.o srcMLXPathCount.o *.gcno
