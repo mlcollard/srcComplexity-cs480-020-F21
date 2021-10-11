@@ -4,13 +4,13 @@
 all : srccomplexity
 
 srccomplexity : srcComplexity.o srcMLXPathCount.o
-	g++ -std=c++17 $^ -lxml2 -o $@
+	g++ -std=c++17 --coverage $^ -lxml2 -o $@
 
 srcComplexity.o : srcComplexity.cpp srcMLXPathCount.hpp
-	g++ -std=c++17 -c $<
+	g++ -std=c++17 --coverage -c $<
 
 srcMLXPathCount.o : srcMLXPathCount.cpp srcMLXPathCount.hpp
-	g++ -std=c++17 -I/usr/include/libxml2 -c $<
+	g++ -std=c++17 --coverage -I/usr/include/libxml2 -c $<
 
 .PHONY: run
 run : srccomplexity
