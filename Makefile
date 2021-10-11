@@ -14,7 +14,11 @@ srcMLXPathCount.o : srcMLXPathCount.cpp srcMLXPathCount.hpp
 
 .PHONY: coverage
 coverage : srccomplexity
-	gcov srccomplexity.gcda srcMLXPathCount.gcda
+	gcov srcComplexity.gcda srcMLXPathCount.gcda
+
+.PHONY: coverage/report
+coverage/report : srccomplexity
+	gcov srcComplexity.gcda | head -3
 
 .PHONY: run
 run : srccomplexity
