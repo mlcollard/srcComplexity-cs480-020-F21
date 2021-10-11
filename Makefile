@@ -24,6 +24,10 @@ coverage/report : srccomplexity
 coverage/clean :
 	@rm -f *.gcda *.gcov
 
+.PHONY: test
+test : srccomplexity coverage/clean
+	./srccomplexity srcMLXPathCount.cpp.xml
+
 .PHONY: run
 run : srccomplexity
 	./srccomplexity srcMLXPathCount.cpp.xml
